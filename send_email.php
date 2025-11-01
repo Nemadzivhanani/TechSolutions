@@ -1,7 +1,7 @@
 <?php
 // --- CONFIGURATION ---
 // IMPORTANT: Replace with the email address where you want to receive messages.
-$recipient_email = "your-email@example.com"; 
+$recipient_email = "info@techsolutions.com"; 
 
 header('Content-Type: application/json');
 
