@@ -100,6 +100,8 @@ nav ul li a {
     padding: 0.5rem 0;
     position: relative;
     transition: color 0.3s;
+    display: flex; /* Added for arrow alignment */
+    align-items: center; /* Added for arrow alignment */
 }
 
 nav ul li a:hover {
@@ -342,8 +344,62 @@ footer {
     color: var(--secondary);
 }
 
+/* --- NEW DESKTOP DROPDOWN STYLES --- */
+nav ul li.dropdown {
+    position: relative;
+}
 
-/* Responsive Design */
+nav ul li .dropdown-content {
+    display: none; 
+    position: absolute;
+    top: 100%; 
+    left: 0;
+    background-color: white;
+    min-width: 220px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    z-index: 101; 
+    padding: 0; 
+}
+
+nav ul li .dropdown-content li {
+    margin: 0; 
+    list-style-type: none;
+}
+
+nav ul li .dropdown-content li a {
+    color: var(--primary); 
+    padding: 12px 16px;
+    display: block;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+nav ul li .dropdown-content li a::after {
+    display: none;
+}
+
+nav ul li .dropdown-content li a:hover {
+    background-color: var(--light); 
+    color: var(--secondary); 
+}
+
+nav ul li.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+nav ul li .dropbtn .fa-chevron-down {
+    font-size: 0.8em;
+    margin-left: 5px;
+    transition: transform 0.3s;
+}
+
+nav ul li.dropdown:hover .fa-chevron-down {
+    transform: rotate(180deg);
+}
+
+
+/* --- Responsive Design --- */
 @media (max-width: 992px) {
     .about-content,
     .contact-content {
@@ -375,5 +431,36 @@ footer {
     }
     .logo-text {
         display: none;
+    }
+
+    /* --- NEW MOBILE DROPDOWN STYLES --- */
+    nav ul li.dropdown {
+        width: 100%;
+        text-align: center;
+    }
+
+    nav ul li .dropdown-content {
+        position: static; 
+        display: none; 
+        width: 100%;
+        box-shadow: none;
+        background-color: rgba(255, 255, 255, 0.1); 
+    }
+
+    nav ul li.dropdown.active .dropdown-content {
+        display: block;
+    }
+
+    nav ul li .dropdown-content li a {
+        color: white; 
+    }
+
+    nav ul li .dropdown-content li a:hover {
+        background-color: var(--secondary);
+        color: white;
+    }
+
+    nav ul li.dropdown.active .fa-chevron-down {
+        transform: rotate(180deg);
     }
 }

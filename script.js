@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    
     // Mobile Menu Toggle
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const navMenu = document.getElementById('navMenu');
@@ -7,6 +8,21 @@ document.addEventListener('DOMContentLoaded', () => {
             navMenu.classList.toggle('active');
         });
     }
+
+    // --- NEW MOBILE DROPDOWN TOGGLE ---
+    document.querySelectorAll('.dropdown > a').forEach(dropbtn => {
+        dropbtn.addEventListener('click', function(e) {
+            // Check if we are in mobile view
+            if (window.innerWidth <= 768) {
+                // Only prevent default if it's the main dropdown link
+                if (e.target.classList.contains('dropbtn')) {
+                    e.preventDefault(); // Stop the link from navigating
+                    // Toggle 'active' on the parent <li>
+                    this.parentElement.classList.toggle('active');
+                }
+            }
+        });
+    });
 
     // Contact Form Submission
     const contactForm = document.getElementById('contactForm');
