@@ -398,6 +398,87 @@ nav ul li.dropdown:hover .fa-chevron-down {
     transform: rotate(180deg);
 }
 
+/* --- Service Modal Styles --- */
+.service-modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Dark overlay */
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* This is the class your JavaScript adds to show the modal */
+.service-modal.active {
+    display: flex; 
+}
+
+.service-modal-content {
+    background: white;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 600px; /* A good width for a modal */
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.service-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.service-modal-header h3 {
+    color: var(--primary);
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    font-size: 2rem; /* Bigger, easier to click */
+    cursor: pointer;
+    color: var(--gray);
+    line-height: 1;
+}
+.close-modal:hover {
+    color: var(--accent);
+}
+
+.service-modal-body {
+    padding: 20px;
+}
+.service-modal-body h4 {
+    color: var(--primary);
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+.service-modal-body ul {
+    list-style-type: none; /* Remove bullets */
+    padding-left: 0;
+}
+.service-modal-body li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+.service-modal-body li::before {
+    content: "✓"; /* Checkmark */
+    color: var(--success);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
 
 /* --- Responsive Design --- */
 @media (max-width: 992px) {
