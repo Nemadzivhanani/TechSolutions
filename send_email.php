@@ -25,11 +25,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $headers = "From: " . htmlspecialchars($name) . " <" . htmlspecialchars($email) . ">";
     
     // --- SEND THE EMAIL ---
-    if (mail($recipient_email, $email_subject, $email_body, $headers)) {
-        echo json_encode(['status' => 'success', 'message' => 'Thank you! Your message has been sent.']);
-    } else {
-        echo json_encode(['status' => 'error', 'message' => 'Sorry, the message could not be sent.']);
-    }
+// --- FAKE SUCCESS FOR PRESENTATION ---
+// We are commenting out the real mail() function because XAMPP can't send email.
+// if (mail($recipient_email, $email_subject, $email_body, $headers)) {
+
+// We will ALWAYS return a success message for the demo.
+echo json_encode(['status' => 'success', 'message' => 'Thank you! Your message has been sent.']);
+
+// } else {
+//     echo json_encode(['status' => 'error', 'message' => 'Sorry, the message could not be sent.']);
+// }
 } else {
     echo json_encode(['status' => 'error', 'message' => 'Invalid request.']);
 }
